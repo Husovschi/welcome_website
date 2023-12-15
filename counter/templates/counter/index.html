@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Counter</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Welcome to My Webpage!</h1>
+    <p>Page views: {{ view_count }}</p>
+    <button id="clickMeButton">Click Me!</button>
+    <p>Button pressed: <span id="buttonCount">{{ button_count }}</span> times</p>
+
+    <script>
+        $(document).ready(function(){
+            $('#clickMeButton').click(function(){
+                $.get('/increment_button/', function(data) {
+                    $('#buttonCount').text(data.button_count);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
