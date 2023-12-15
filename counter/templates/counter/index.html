@@ -5,11 +5,15 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>Welcome to My Webpage!</h1>
-    <p>Page views: {{ view_count }}</p>
-    <button id="clickMeButton">Click Me!</button>
-    <p>Button pressed: <span id="buttonCount">{{ button_count }}</span> times</p>
-
+    <h1>☁️</h1>
+    <p>views: {{ view_count }}</p>
+    <ul>
+        {% for country in top_countries %}
+            <li>{{ country.name }}: {{ country.visits }}</li>
+        {% endfor %}
+    </ul>
+    <button id="clickMeButton">🖱️</button>
+    <p>clicks: <span id="buttonCount">{{ button_count }}</span></p>
     <script>
         $(document).ready(function(){
             $('#clickMeButton').click(function(){
