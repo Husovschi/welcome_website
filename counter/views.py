@@ -10,7 +10,7 @@ def index(request):
     count.save()
 
     # Get country from user's IP
-    country_name = get_country_from_ip(request.META.get('REMOTE_ADDR'))
+    country_name = get_country_from_ip(request.META.get('HTTP_CF_CONNECTING_IP'))
     country, created = Country.objects.get_or_create(name=country_name)
     country.visits += 1
     country.save()
